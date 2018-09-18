@@ -29,7 +29,7 @@ public class CenterController {
     }
 
     @PutMapping(value = "/Update-Service-In-Database")
-    public @ResponseBody String updateService(CenterDTO centerDTO) {
+    public @ResponseBody String updateService(@RequestBody CenterDTO centerDTO) {
         centerService.updateCenter(centerDTO);
         return "OK";
     }
