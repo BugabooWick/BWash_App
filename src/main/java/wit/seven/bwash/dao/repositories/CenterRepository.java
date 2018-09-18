@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import wit.seven.bwash.dao.models.Center;
 
 @Repository
-public interface ServiceRepository extends JpaRepository<Center, Long> {
+public interface CenterRepository extends JpaRepository<Center, Long> {
 }

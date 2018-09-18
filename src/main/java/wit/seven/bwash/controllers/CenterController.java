@@ -1,38 +1,36 @@
 package wit.seven.bwash.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 import wit.seven.bwash.dto.CenterDTO;
 import wit.seven.bwash.services.CenterService;
 
 import java.util.List;
 
+@Controller
 public class CenterController {
-
+    @Autowired
     private CenterService centerService;
 
-    @Autowired
     public CenterController(CenterService bWashService) {
         this.centerService = bWashService;
     }
 
     @GetMapping(value = "/Get-List-In-Database")
-    public List<CenterDTO> services() {
+    public @ResponseBody List<CenterDTO> services() {
         return centerService.getService();
     }
 
     @PostMapping(value = "/Create-Service-In-Database")
-    public String addServiceInData(@RequestBody CenterDTO serviceBWashDTO) {
-        centerService.createCenter(serviceBWashDTO);
+    public @ResponseBody String createServiceInData(@RequestBody CenterDTO centerDTO) {
+        centerService.createCenter(centerDTO);
         return "OK";
     }
 
     @PutMapping(value = "/Update-Service-In-Database")
-    public String updateService(CenterDTO serviceBWashDTO) {
-        centerService.updateCenter(serviceBWashDTO);
+    public @ResponseBody String updateService(CenterDTO centerDTO) {
+        centerService.updateCenter(centerDTO);
         return "OK";
     }
 }

@@ -8,21 +8,12 @@ import java.util.List;
 public class CenterDTO {
     private Long idCenter;
     private String nameService;
-    private Integer phoneService;
+    private String phoneService;
     private String pictureService;
     private Date openTimeService;
     private Double pricesService;
     private String descriptionService;
     private Integer rattingService;
-    private List<Center> serviceBWashList;
-
-    public List<Center> getServiceBWashList() {
-        return serviceBWashList;
-    }
-
-    public void setServiceBWashList(List<Center> serviceBWashList) {
-        this.serviceBWashList = serviceBWashList;
-    }
 
     public Long getIdCenter() {
         return idCenter;
@@ -40,11 +31,11 @@ public class CenterDTO {
         this.nameService = nameService;
     }
 
-    public Integer getPhoneService() {
+    public String getPhoneService() {
         return phoneService;
     }
 
-    public void setPhoneService(Integer phoneService) {
+    public void setPhoneService(String phoneService) {
         this.phoneService = phoneService;
     }
 

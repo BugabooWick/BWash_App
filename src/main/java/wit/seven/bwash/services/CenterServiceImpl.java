@@ -2,11 +2,9 @@ package wit.seven.bwash.services;
 
 import org.springframework.stereotype.Service;
 import wit.seven.bwash.dao.models.Center;
-import wit.seven.bwash.dao.models.User;
-import wit.seven.bwash.dao.repositories.ServiceRepository;
+import wit.seven.bwash.dao.repositories.CenterRepository;
 import wit.seven.bwash.dao.repositories.UserRepository;
 import wit.seven.bwash.dto.CenterDTO;
-import wit.seven.bwash.dto.UserDTO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,11 +13,11 @@ import java.util.Optional;
 @Service
 public class CenterServiceImpl implements CenterService {
 
-    private ServiceRepository serviceRepository;
+    private CenterRepository centerRepository;
     private UserRepository userRepository;
 
-    public CenterServiceImpl(ServiceRepository serviceRepository, UserRepository userRepository) {
-        this.serviceRepository = serviceRepository;
+    public CenterServiceImpl(CenterRepository serviceRepository, UserRepository userRepository) {
+        this.centerRepository = serviceRepository;
         this.userRepository = userRepository;
     }
 
@@ -29,16 +27,16 @@ public class CenterServiceImpl implements CenterService {
         service.setNameService(centerDTO.getNameService());
         service.setPhoneService(centerDTO.getPhoneService());
         service.setPictureService(centerDTO.getPictureService());
-        service.setOpenTimeService(centerDTO.getOpenTimeService());
+        //service.setOpenTimeService(centerDTO.getOpenTimeService());
         service.setPricesService(centerDTO.getPricesService());
         service.setDescriptionService(centerDTO.getDescriptionService());
         service.setRattingService(centerDTO.getRattingService());
-        serviceRepository.save(service);
+        centerRepository.save(service);
     }
 
     @Override
     public void updateCenter(CenterDTO centerDTO) {
-        Optional<Center> serviceOptional = serviceRepository.findById(centerDTO.getIdCenter());
+        Optional<Center> serviceOptional = centerRepository.findById(centerDTO.getIdCenter());
         if (serviceOptional.isPresent()) {
             Center serviceBWash = serviceOptional.get();
             serviceBWash.setNameService(centerDTO.getNameService());
@@ -48,16 +46,17 @@ public class CenterServiceImpl implements CenterService {
             serviceBWash.setPricesService(centerDTO.getPricesService());
             serviceBWash.setDescriptionService(centerDTO.getDescriptionService());
             serviceBWash.setRattingService(centerDTO.getRattingService());
-            serviceRepository.save(serviceBWash);
+            centerRepository.save(serviceBWash);
         }
     }
 
     @Override
     public List<CenterDTO> getService() {
         List<CenterDTO> centerDTOs = new ArrayList<>();
-        List<Center> serviceList = serviceRepository.findAll();
+        List<Center> serviceList = centerRepository.findAll();
         for (Center iService: serviceList) {
             CenterDTO serviceDTO = new CenterDTO();
+            serviceDTO.setIdCenter(iService.getIdCenter());
             serviceDTO.setNameService(iService.getNameService());
             serviceDTO.setPhoneService(iService.getPhoneService());
             serviceDTO.setPictureService(iService.getPictureService());

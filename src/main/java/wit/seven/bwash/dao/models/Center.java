@@ -15,7 +15,7 @@ public class Center {
     private String nameService;
 
     @Column(name = "service_phone")
-    private Integer phoneService;
+    private String phoneService;
 
     @Column(name = "service_picture")
     private String pictureService;
@@ -50,11 +50,11 @@ public class Center {
         this.nameService = nameService;
     }
 
-    public Integer getPhoneService() {
+    public String getPhoneService() {
         return phoneService;
     }
 
-    public void setPhoneService(Integer phoneService) {
+    public void setPhoneService(String phoneService) {
         this.phoneService = phoneService;
     }
 
