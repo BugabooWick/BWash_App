@@ -13,11 +13,11 @@ import java.util.Optional;
 @Service
 public class ServiceCenterServiceImpl implements ServiceCenterService {
 
-    private ServiceCenterRepository centerRepository;
+    private ServiceCenterRepository serviceCenterRepository;
     private UserRepository userRepository;
 
-    public ServiceCenterServiceImpl(ServiceCenterRepository serviceRepository, UserRepository userRepository) {
-        this.centerRepository = serviceRepository;
+    public ServiceCenterServiceImpl(ServiceCenterRepository serviceCenterRepository, UserRepository userRepository) {
+        this.serviceCenterRepository = serviceCenterRepository;
         this.userRepository = userRepository;
     }
 
@@ -31,13 +31,13 @@ public class ServiceCenterServiceImpl implements ServiceCenterService {
         service.setServicePrices(serviceCenterDTO.getServicePrices());
         service.setServiceDescription(serviceCenterDTO.getServiceDescription());
         service.setServiceRatting(serviceCenterDTO.getServiceRatting());
-        centerRepository.save(service);
+        serviceCenterRepository.save(service);
         return null;
     }
 
     @Override
     public String updateCenter(ServiceCenterDTO serviceCenterDTO) {
-        Optional<ServiceCenter> serviceCenterOptional = centerRepository.findById(serviceCenterDTO.getServiceId());
+        Optional<ServiceCenter> serviceCenterOptional = serviceCenterRepository.findById(serviceCenterDTO.getServiceId());
         if (serviceCenterOptional.isPresent()) {
             ServiceCenter service = serviceCenterOptional.get();
             service.setServiceName(serviceCenterDTO.getServiceName());
@@ -47,7 +47,7 @@ public class ServiceCenterServiceImpl implements ServiceCenterService {
             service.setServicePrices(serviceCenterDTO.getServicePrices());
             service.setServiceDescription(serviceCenterDTO.getServiceDescription());
             service.setServiceRatting(serviceCenterDTO.getServiceRatting());
-            centerRepository.save(service);
+            serviceCenterRepository.save(service);
         }
         return null;
     }
@@ -55,7 +55,7 @@ public class ServiceCenterServiceImpl implements ServiceCenterService {
     @Override
     public List<ServiceCenterDTO> getService() {
         List<ServiceCenterDTO> serviceDtoList = new ArrayList<>();
-        List<ServiceCenter> serviceList = centerRepository.findAll();
+        List<ServiceCenter> serviceList = serviceCenterRepository.findAll();
         for (ServiceCenter iService: serviceList) {
             ServiceCenterDTO serviceDTO = new ServiceCenterDTO();
             serviceDTO.setServiceId(iService.getServiceId());
