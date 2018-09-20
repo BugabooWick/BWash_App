@@ -4,11 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import wit.seven.bwash.dto.UserDTO;
 import wit.seven.bwash.services.UserService;
 
 @Controller
+@RequestMapping(value = "/bwash")
 public class UserController {
     private UserService userService;
 
@@ -19,7 +21,6 @@ public class UserController {
 
     @PostMapping(value = "/Create-Request-In-Database")
     public @ResponseBody String createRequest(@RequestBody UserDTO userDTO){
-        userService.createRequest(userDTO);
-        return "OK";
+       return userService.createRequest(userDTO);
     }
 }

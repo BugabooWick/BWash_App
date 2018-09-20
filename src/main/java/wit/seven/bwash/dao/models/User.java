@@ -4,74 +4,74 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "tb_user")
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
-    private long idUser;
+    private long userId;
 
     @Column(name = "user_name")
-    private String nameUser;
+    private String userName;
 
     @Column(name = "user_phone")
-    private String phoneUser;
+    private String userPhone;
 
     @Column(name = "user_location")
-    private String localUser;
+    private String userLocation;
 
     @Temporal(value = TemporalType.TIMESTAMP)
     @Column(name = "user_time")
-    private Date timeUser = new Date();
+    private Date userTime = new Date();
 
     @Column(name = "user_request")
-    private String requestUser;
+    private String userRequest;
 
-    public long getIdUser() {
-        return idUser;
+    public long getUserId() {
+        return userId;
     }
 
-    public void setIdUser(long idUser) {
-        this.idUser = idUser;
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
-    public String getNameUser() {
-        return nameUser;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setNameUser(String nameUser) {
-        this.nameUser = nameUser;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getPhoneUser() {
-        return phoneUser;
+    public String getUserPhone() {
+        return userPhone;
     }
 
-    public void setPhoneUser(String phoneUser) {
-        this.phoneUser = phoneUser;
+    public void setUserPhone(String userPhone) {
+        this.userPhone = userPhone;
     }
 
-    public String getLocalUser() {
-        return localUser;
+    public String getUserLocation() {
+        return userLocation;
     }
 
-    public void setLocalUser(String localUser) {
-        this.localUser = localUser;
+    public void setUserLocation(String userLocation) {
+        this.userLocation = userLocation;
     }
 
-    public Date getTimeUser() {
-        return timeUser;
+    public Date getUserTime() {
+        return userTime;
     }
 
-    public void setTimeUser(Date timeUser) {
-        this.timeUser = timeUser;
+    public void setUserTime(Date userTime) {
+        this.userTime = userTime;
     }
 
-    public String getRequestUser() {
-        return requestUser;
+    public String getUserRequest() {
+        return userRequest;
     }
 
-    public void setRequestUser(String requestUser) {
-        this.requestUser = requestUser;
+    public void setUserRequest(String userRequest) {
+        this.userRequest = userRequest;
     }
 }

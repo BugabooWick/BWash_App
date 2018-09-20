@@ -2,27 +2,28 @@ package wit.seven.bwash.services;
 
 import org.springframework.stereotype.Service;
 import wit.seven.bwash.dao.models.User;
-import wit.seven.bwash.dao.repositories.CenterRepository;
+import wit.seven.bwash.dao.repositories.ServiceCenterRepository;
 import wit.seven.bwash.dao.repositories.UserRepository;
 import wit.seven.bwash.dto.UserDTO;
 
 @Service
 public class UserServiceImpl implements UserService {
-    private CenterRepository serviceRepository;
+    private ServiceCenterRepository serviceRepository;
     private UserRepository userRepository;
 
-    public UserServiceImpl(CenterRepository serviceRepository, UserRepository userRepository) {
+    public UserServiceImpl(ServiceCenterRepository serviceRepository, UserRepository userRepository) {
         this.serviceRepository = serviceRepository;
         this.userRepository = userRepository;
     }
 
     @Override
-    public void createRequest(UserDTO userDTO) {
+    public String createRequest(UserDTO userDTO) {
         User user = new User();
-        user.setNameUser(userDTO.getNameUser());
-        user.setPhoneUser(userDTO.getPhoneUser());
-        user.setLocalUser(userDTO.getLocalUser());
-        user.setRequestUser(userDTO.getRequestUser());
+        user.setUserName(userDTO.getUserName());
+        user.setUserPhone(userDTO.getUserPhone());
+        user.setUserLocation(userDTO.getUserLocation());
+        user.setUserRequest(userDTO.getUserRequest());
         userRepository.save(user);
+        return null;
     }
 }

@@ -3,58 +3,70 @@ package wit.seven.bwash.dto;
 import java.util.Date;
 
 public class UserDTO {
-    private Long idUser;
-    private String nameUser;
-    private String phoneUser;
-    private String localUser;
-    private Date timeUser;
-    private String requestUser;
+    private Long userId;
+    private String userName;
+    private String userPhone;
+    private String userLocation;
+    private Date userTime;
+    private String userRequest;
 
-    public Long getIdUser() {
-        return idUser;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setIdUser(Long idUser) {
-        this.idUser = idUser;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
-    public String getNameUser() {
-        return nameUser;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setNameUser(String nameUser) {
-        this.nameUser = nameUser;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getPhoneUser() {
-        return phoneUser;
+    public String getUserPhone() {
+        return userPhone;
     }
 
-    public void setPhoneUser(String phoneUser) {
-        this.phoneUser = phoneUser;
+    public void setUserPhone(String userPhone) {
+        this.userPhone = userPhone;
     }
 
-    public String getLocalUser() {
-        return localUser;
+    public String getUserLocation() {
+        return userLocation;
     }
 
-    public void setLocalUser(String localUser) {
-        this.localUser = localUser;
+    public void setUserLocation(String userLocation) {
+        this.userLocation = userLocation;
     }
 
-    public Date getTimeUser() {
-        return timeUser;
+    public Date getUserTime() {
+        return userTime;
     }
 
-    public void setTimeUser(Date timeUser) {
-        this.timeUser = timeUser;
+    public void setUserTime(Date userTime) {
+        this.userTime = userTime;
     }
 
-    public String getRequestUser() {
-        return requestUser;
+    public String getUserRequest() {
+        return userRequest;
     }
 
-    public void setRequestUser(String requestUser) {
-        this.requestUser = requestUser;
+    public void setUserRequest(String userRequest) {
+        this.userRequest = userRequest;
+    }
+
+    @Override
+    public String toString() {
+        return "UserDTO{" +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", userPhone='" + userPhone + '\'' +
+                ", userLocation='" + userLocation + '\'' +
+                ", userTime=" + userTime +
+                ", userRequest='" + userRequest + '\'' +
+                '}';
     }
 }
