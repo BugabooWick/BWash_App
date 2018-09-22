@@ -1,11 +1,12 @@
 package wit.seven.bwash.dao.models;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "service_center")
-public class ServiceCenter {
+public class ServiceCenter implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "service_id")

@@ -13,7 +13,7 @@ import java.util.List;
 @Controller
 @RequestMapping(value = "/bwash")
 public class ServiceCenterController {
-    private List<ServiceCenterDTO> serviceCenterDtoList = new ArrayList<>();
+    private List<ServiceCenterDTO> serviceCenterList = new ArrayList<>();
     private ServiceCenterService serviceCenter;
 
     @Autowired
@@ -29,16 +29,16 @@ public class ServiceCenterController {
 
     @PostMapping(value = "/createService")
     public @ResponseBody Response createServiceInData(@RequestBody ServiceCenterDTO serviceCenterDTO) {
-        serviceCenterDtoList.add(serviceCenterDTO);
+        serviceCenterList.add(serviceCenterDTO);
         serviceCenter.createCenter(serviceCenterDTO);
-        Response response = new Response(true,"serviceCenterDTO","Successful!");
-        response.setData(serviceCenterDtoList);
+        Response response = new Response(true,serviceCenterDTO,"Successful!");
+        response.setData(serviceCenterDTO);
         return response;
-
     }
 
     @PutMapping(value = "/updateService")
     public @ResponseBody String updateService(@RequestBody ServiceCenterDTO centerDTO) {
         return serviceCenter.updateCenter(centerDTO);
     }
+
 }
