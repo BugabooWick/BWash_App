@@ -3,6 +3,7 @@ package wit.seven.bwash.dao.models;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "service_center")
@@ -33,6 +34,17 @@ public class ServiceCenter implements Serializable {
 
     @Column(name = "service_ratting")
     private Integer serviceRatting;
+
+    @OneToMany(mappedBy = "serviceCenter")
+    private Set<ServiceCenter> serviceCenters;
+
+    public Set<ServiceCenter> getServiceCenters() {
+        return serviceCenters;
+    }
+
+    public void setServiceCenters(Set<ServiceCenter> serviceCenters) {
+        this.serviceCenters = serviceCenters;
+    }
 
     public Long getServiceId() {
         return serviceId;

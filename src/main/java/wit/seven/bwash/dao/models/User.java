@@ -3,6 +3,7 @@ package wit.seven.bwash.dao.models;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -27,6 +28,17 @@ public class User implements Serializable {
 
     @Column(name = "user_request")
     private String userRequest;
+
+    @OneToMany(mappedBy = "user")
+    private Set<User> users;
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
 
     public long getUserId() {
         return userId;
