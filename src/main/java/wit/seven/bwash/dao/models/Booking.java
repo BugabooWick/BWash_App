@@ -1,9 +1,11 @@
 package wit.seven.bwash.dao.models;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.io.Serializable;
 
-public class Booking {
+@Entity
+@Table(name = "booking")
+public class Booking implements Serializable {
     private String bookLocation;
     private Boolean bookStatus;
 
@@ -24,6 +26,7 @@ public class Booking {
     }
 
     @ManyToOne
+    @Id
     @JoinColumn(name = "user_id")
     private User user;
 

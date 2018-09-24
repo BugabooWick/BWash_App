@@ -29,15 +29,15 @@ public class User implements Serializable {
     @Column(name = "user_request")
     private String userRequest;
 
-    @OneToMany(mappedBy = "user")
-    private Set<User> users;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Booking> bookings;
 
-    public Set<User> getUsers() {
-        return users;
+    public Set<Booking> getBookings() {
+        return bookings;
     }
 
-    public void setUsers(Set<User> users) {
-        this.users = users;
+    public void setBookings(Set<Booking> bookings) {
+        this.bookings = bookings;
     }
 
     public long getUserId() {
