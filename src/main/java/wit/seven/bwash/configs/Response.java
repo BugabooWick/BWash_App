@@ -1,6 +1,8 @@
 package wit.seven.bwash.configs;
 
-public class Response {
+import java.util.List;
+
+public class Response <Object> {
     private Boolean success;
     private Object data;
     private String message;

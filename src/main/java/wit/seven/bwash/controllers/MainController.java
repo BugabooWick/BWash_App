@@ -17,7 +17,8 @@ public class MainController {
 
     @GetMapping(value = "/login")
     public @ResponseBody Response loginAccount(UserDTO userDTO) {
-        Response response = new Response(true,userDTO,"Done!");
+        Response response = new Response(true,"userDTO","Done!");
         return response;
     }
+
 }

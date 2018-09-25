@@ -26,14 +26,20 @@ public class ServiceCenter implements Serializable {
     @Column(name = "service_open_time")
     private Date serviceOpenTime = new Date();
 
-    @Column(name = "service_price")
+    @Column(name = "service_lat")
+    private Double serviceLat;
+
+    @Column(name = "service_lng")
+    private Double serviceLng;
+
+    @Column(name = "service_prices")
     private Double servicePrices;
 
     @Column(name = "service_description")
     private String serviceDescription;
 
-    @Column(name = "service_ratting")
-    private Integer serviceRatting;
+    @Column(name = "service_rating")
+    private Integer serviceRating;
 
     @OneToMany(mappedBy = "serviceCenter")
     private Set<Booking> bookings;
@@ -86,6 +92,22 @@ public class ServiceCenter implements Serializable {
         this.serviceOpenTime = serviceOpenTime;
     }
 
+    public Double getServiceLat() {
+        return serviceLat;
+    }
+
+    public void setServiceLat(Double serviceLat) {
+        this.serviceLat = serviceLat;
+    }
+
+    public Double getServiceLng() {
+        return serviceLng;
+    }
+
+    public void setServiceLng(Double serviceLng) {
+        this.serviceLng = serviceLng;
+    }
+
     public Double getServicePrices() {
         return servicePrices;
     }
@@ -102,11 +124,11 @@ public class ServiceCenter implements Serializable {
         this.serviceDescription = serviceDescription;
     }
 
-    public Integer getServiceRatting() {
-        return serviceRatting;
+    public Integer getServiceRating() {
+        return serviceRating;
     }
 
-    public void setServiceRatting(Integer serviceRatting) {
-        this.serviceRatting = serviceRatting;
+    public void setServiceRating(Integer serviceRating) {
+        this.serviceRating = serviceRating;
     }
 }

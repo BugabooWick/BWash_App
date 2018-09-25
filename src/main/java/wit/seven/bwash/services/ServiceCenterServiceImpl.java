@@ -30,7 +30,7 @@ public class ServiceCenterServiceImpl implements ServiceCenterService {
         //service.setServiceOpenTime(serviceCenterDTO.getServiceOpenTime());
         service.setServicePrices(serviceCenterDTO.getServicePrices());
         service.setServiceDescription(serviceCenterDTO.getServiceDescription());
-        service.setServiceRatting(serviceCenterDTO.getServiceRatting());
+        service.setServiceRating(serviceCenterDTO.getServiceRating());
         serviceCenterRepository.save(service);
         return null;
     }
@@ -46,7 +46,7 @@ public class ServiceCenterServiceImpl implements ServiceCenterService {
             service.setServiceOpenTime(serviceCenterDTO.getServiceOpenTime());
             service.setServicePrices(serviceCenterDTO.getServicePrices());
             service.setServiceDescription(serviceCenterDTO.getServiceDescription());
-            service.setServiceRatting(serviceCenterDTO.getServiceRatting());
+            service.setServiceRating(serviceCenterDTO.getServiceRating());
             serviceCenterRepository.save(service);
         }
         return null;
@@ -65,7 +65,7 @@ public class ServiceCenterServiceImpl implements ServiceCenterService {
             serviceDTO.setServiceOpenTime(iService.getServiceOpenTime());
             serviceDTO.setServicePrices(iService.getServicePrices());
             serviceDTO.setServiceDescription(iService.getServiceDescription());
-            serviceDTO.setServiceRatting(iService.getServiceRatting());
+            serviceDTO.setServiceRating(iService.getServiceRating());
             //
             serviceDtoList.add(serviceDTO);
         }

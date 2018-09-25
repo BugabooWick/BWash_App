@@ -8,9 +8,11 @@ public class ServiceCenterDTO {
     private String servicePhone;
     private String servicePicture;
     private Date serviceOpenTime;
+    private Double serviceLat;
+    private Double serviceLng;
     private Double servicePrices;
     private String serviceDescription;
-    private Integer serviceRatting;
+    private Integer serviceRating;
 
     public Long getServiceId() {
         return serviceId;
@@ -68,25 +70,11 @@ public class ServiceCenterDTO {
         this.serviceDescription = serviceDescription;
     }
 
-    public Integer getServiceRatting() {
-        return serviceRatting;
+    public Integer getServiceRating() {
+        return serviceRating;
     }
 
-    public void setServiceRatting(Integer serviceRatting) {
-        this.serviceRatting = serviceRatting;
-    }
-
-    @Override
-    public String toString() {
-        return "ServiceCenterDTO{" +
-                "serviceId=" + serviceId +
-                ", serviceName='" + serviceName + '\'' +
-                ", servicePhone='" + servicePhone + '\'' +
-                ", servicePicture='" + servicePicture + '\'' +
-                ", serviceOpenTime=" + serviceOpenTime +
-                ", servicePrices=" + servicePrices +
-                ", serviceDescription='" + serviceDescription + '\'' +
-                ", serviceRatting=" + serviceRatting +
-                '}';
+    public void setServiceRating(Integer serviceRating) {
+        this.serviceRating = serviceRating;
     }
 }

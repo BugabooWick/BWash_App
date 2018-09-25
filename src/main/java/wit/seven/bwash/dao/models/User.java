@@ -11,23 +11,24 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
-    private long userId;
+    private Long userId;
 
     @Column(name = "user_name")
     private String userName;
 
+    @Column(name = "user_password")
+    private String userPassword;
+
     @Column(name = "user_phone")
     private String userPhone;
 
-    @Column(name = "user_location")
-    private String userLocation;
+    @Column(name = "user_lat")
+    private Double userLat;
 
-    @Temporal(value = TemporalType.TIMESTAMP)
-    @Column(name = "user_time")
-    private Date userTime = new Date();
+    @Column(name = "user_lng")
+    private Double userLng;
 
-    @Column(name = "user_request")
-    private String userRequest;
+    @Column(name = "user_authority")
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Booking> bookings;
@@ -56,6 +57,14 @@ public class User implements Serializable {
         this.userName = userName;
     }
 
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
+    }
+
     public String getUserPhone() {
         return userPhone;
     }
@@ -64,27 +73,19 @@ public class User implements Serializable {
         this.userPhone = userPhone;
     }
 
-    public String getUserLocation() {
-        return userLocation;
+    public Double getUserLat() {
+        return userLat;
     }
 
-    public void setUserLocation(String userLocation) {
-        this.userLocation = userLocation;
+    public void setUserLat(Double userLat) {
+        this.userLat = userLat;
     }
 
-    public Date getUserTime() {
-        return userTime;
+    public Double getUserLng() {
+        return userLng;
     }
 
-    public void setUserTime(Date userTime) {
-        this.userTime = userTime;
-    }
-
-    public String getUserRequest() {
-        return userRequest;
-    }
-
-    public void setUserRequest(String userRequest) {
-        this.userRequest = userRequest;
+    public void setUserLng(Double userLng) {
+        this.userLng = userLng;
     }
 }

@@ -1,34 +1,29 @@
 package wit.seven.bwash.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import wit.seven.bwash.configs.Response;
 import wit.seven.bwash.dto.ServiceCenterDTO;
 import wit.seven.bwash.services.ServiceCenterService;
 
-import java.util.ArrayList;
 import java.util.List;
 
-@Controller
-@RequestMapping(value = "/bwash")
+@RestController
+@RequestMapping(value = "/BWash")
 public class ServiceCenterController {
     private ServiceCenterService serviceCenter;
 
-    @Autowired
     public ServiceCenterController(ServiceCenterService serviceCenter) {
         this.serviceCenter = serviceCenter;
     }
 
     @GetMapping(value = "/getListService")
-    public @ResponseBody
-    List<ServiceCenterDTO> services() {
+    public List<ServiceCenterDTO> services() {
         return serviceCenter.getService();
     }
 
     @PostMapping(value = "/createService")
-    public @ResponseBody Response createServiceInData(@RequestBody ServiceCenterDTO serviceCenterDTO) {
-        Response response = new Response(true,"serviceCenterDTO","Successful!");
+    public Response createServiceCenter(@RequestBody ServiceCenterDTO serviceCenterDTO) {
+        Response<ServiceCenterDTO> response = new Response<>(true,serviceCenterDTO,"Successful!");
         serviceCenter.createCenter(serviceCenterDTO);
         response.setData(serviceCenterDTO);
         return response;

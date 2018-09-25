@@ -1,20 +1,18 @@
 package wit.seven.bwash.dto;
 
-import java.util.Date;
-
 public class UserDTO {
     private Long userId;
     private String userName;
+    private String userPassword;
     private String userPhone;
-    private String userLocation;
-    private Date userTime;
-    private String userRequest;
+    private Double userLat;
+    private Double userLng;
 
-    public Long getUserId() {
+    public long getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(long userId) {
         this.userId = userId;
     }
 
@@ -26,6 +24,14 @@ public class UserDTO {
         this.userName = userName;
     }
 
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
+    }
+
     public String getUserPhone() {
         return userPhone;
     }
@@ -34,39 +40,19 @@ public class UserDTO {
         this.userPhone = userPhone;
     }
 
-    public String getUserLocation() {
-        return userLocation;
+    public Double getUserLat() {
+        return userLat;
     }
 
-    public void setUserLocation(String userLocation) {
-        this.userLocation = userLocation;
+    public void setUserLat(Double userLat) {
+        this.userLat = userLat;
     }
 
-    public Date getUserTime() {
-        return userTime;
+    public Double getUserLng() {
+        return userLng;
     }
 
-    public void setUserTime(Date userTime) {
-        this.userTime = userTime;
-    }
-
-    public String getUserRequest() {
-        return userRequest;
-    }
-
-    public void setUserRequest(String userRequest) {
-        this.userRequest = userRequest;
-    }
-
-    @Override
-    public String toString() {
-        return "UserDTO{" +
-                "userId=" + userId +
-                ", userName='" + userName + '\'' +
-                ", userPhone='" + userPhone + '\'' +
-                ", userLocation='" + userLocation + '\'' +
-                ", userTime=" + userTime +
-                ", userRequest='" + userRequest + '\'' +
-                '}';
+    public void setUserLng(Double userLng) {
+        this.userLng = userLng;
     }
 }
