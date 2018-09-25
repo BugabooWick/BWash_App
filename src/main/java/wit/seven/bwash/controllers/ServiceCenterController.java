@@ -13,7 +13,6 @@ import java.util.List;
 @Controller
 @RequestMapping(value = "/bwash")
 public class ServiceCenterController {
-    private List<ServiceCenterDTO> serviceCenterList = new ArrayList<>();
     private ServiceCenterService serviceCenter;
 
     @Autowired
@@ -29,9 +28,9 @@ public class ServiceCenterController {
 
     @PostMapping(value = "/createService")
     public @ResponseBody Response createServiceInData(@RequestBody ServiceCenterDTO serviceCenterDTO) {
-        serviceCenterList.add(serviceCenterDTO);
         Response response = new Response(true,"serviceCenterDTO","Successful!");
-        response.setData(serviceCenter.createCenter(serviceCenterDTO));
+        serviceCenter.createCenter(serviceCenterDTO);
+        response.setData(serviceCenterDTO);
         return response;
     }
 
