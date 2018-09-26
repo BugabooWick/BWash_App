@@ -53,7 +53,7 @@ public class ServiceCenterServiceImpl implements ServiceCenterService {
     }
 
     @Override
-    public List<ServiceCenterDTO> getService() {
+    public List<ServiceCenterDTO> getListService() {
         List<ServiceCenterDTO> serviceDtoList = new ArrayList<>();
         List<ServiceCenter> serviceList = serviceCenterRepository.findAll();
         for (ServiceCenter iService: serviceList) {

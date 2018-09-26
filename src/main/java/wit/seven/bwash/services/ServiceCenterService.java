@@ -8,6 +8,6 @@ public interface ServiceCenterService {
     String createCenter(ServiceCenterDTO serviceCenterDTO);
     String updateCenter(ServiceCenterDTO serviceCenterDTO);
     //void cancelService(ServiceCenterDTO serviceBWashDTO);
-    List<ServiceCenterDTO> getService();
+    List<ServiceCenterDTO> getListService();
 
 }

@@ -17,15 +17,17 @@ public class ServiceCenterController {
     }
 
     @GetMapping(value = "/getListService")
-    public List<ServiceCenterDTO> services() {
-        return serviceCenter.getService();
+    public Response<List<ServiceCenterDTO>> getListServiceCenter() {
+        List<ServiceCenterDTO> serviceCenterDTOs = serviceCenter.getListService();
+        Response<List<ServiceCenterDTO>> response = new Response<>(true,serviceCenterDTOs,"Done!");
+        return response;
     }
 
     @PostMapping(value = "/createService")
-    public Response createServiceCenter(@RequestBody ServiceCenterDTO serviceCenterDTO) {
-        Response<ServiceCenterDTO> response = new Response<>(true,serviceCenterDTO,"Successful!");
+    public Response addServiceCenter(@RequestBody ServiceCenterDTO serviceCenterDTO) {
         serviceCenter.createCenter(serviceCenterDTO);
-        response.setData(serviceCenterDTO);
+        Response<ServiceCenterDTO> response = new Response<>(true,serviceCenterDTO,"Successful!");
+        response.getData();
         return response;
     }
 
